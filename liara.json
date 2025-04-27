@@ -1,5 +1,6 @@
 {
   "app": "roohollah-jafari",
+  "platform": "dotnet8",
   "port": 3000,
   "build": {
     "location": "iran"
