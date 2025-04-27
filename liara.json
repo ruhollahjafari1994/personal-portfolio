@@ -1,7 +1,9 @@
 {
   "app": "roohollah-jafari",
-
-  "port": 3000,
+  "port": 80,
+  "dotnet": {
+    "version": "8.0"
+  },
   "build": {
     "location": "iran"
   },
