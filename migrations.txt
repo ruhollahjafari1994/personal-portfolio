@@ -1,0 +1,2 @@
+dotnet ef migrations add UpdateCreate --project ./PersonalPortfolio
+dotnet ef database update --project ./PersonalPortfolio
