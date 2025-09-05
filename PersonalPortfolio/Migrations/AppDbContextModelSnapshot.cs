@@ -34,10 +34,8 @@ namespace PersonalPortfolio.Migrations
                         .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("Description")
+                        .IsRequired()
                         .HasColumnType("text");
-
-                    b.Property<long>("GitHubId")
-                        .HasColumnType("bigint");
 
                     b.Property<string>("GithubLink")
                         .IsRequired()
