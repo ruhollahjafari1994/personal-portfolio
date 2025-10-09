@@ -1,35 +1,55 @@
-body {
+﻿body {
     font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
-    height: 100vh;
-    overflow: hidden;
+    min-height: 100vh;
+    overflow-x: hidden; /* جلوگیری از اسکرول افقی ناخواسته */
+    overflow-y: hidden; /* بدون اسکرول عمودی ناخواسته */
     transition: background 0.5s ease, color 0.5s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.container-flex {
+    display: flex;
+    flex-direction: row; /* همیشه row */
+    flex-grow: 1;
+    min-height: 100vh; /* پر کردن کامل ارتفاع */
+    overflow: hidden;
 }
 
 .sidebar {
     background-color: #f0f0f0;
     border-right: 1px solid #ddd;
     transition: background 0.5s ease, color 0.5s ease;
-    overflow: hidden; /* No scroll in sidebar */
     display: flex;
-    flex-direction: column; /* Better flex for fitting content */
-    justify-content: flex-start; /* Align to top */
+    flex-direction: column;
+    justify-content: flex-start;
+    overflow-y: auto; /* اسکرول داخلی اگر محتوا طولانی باشه */
+    width: 300px; /* عرض ثابت در دسکتاپ */
+    height: 100%; /* ارتفاع ثابت (کل صفحه) */
+    min-height: 100vh; /* حداقل ارتفاع ثابت */
+    padding: 20px;
+    box-sizing: border-box;
 }
+
+    .sidebar img {
+        max-width: 150px;
+    }
 
     .sidebar ul {
         margin: 0;
         padding: 0;
-        font-size: 0.9rem; /* Smaller font to fit all text */
-        line-height: 1.2; /* Tighter lines to prevent cutoff */
-        overflow: hidden; /* Ensure no overflow */
+        font-size: 0.9rem;
+        line-height: 1.2;
     }
 
 .main-content {
     display: flex;
     flex-direction: column;
-    height: 100%;
-    overflow: hidden; /* No scroll */
+    flex-grow: 1;
+    overflow: hidden;
+    min-height: 100vh; /* پر کردن ارتفاع */
 }
 
 .yellow-bg {
@@ -40,140 +60,105 @@ body {
     margin: 10px;
     padding: 20px;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     text-align: center;
-    overflow: hidden; /* No scroll in main */
+    flex-grow: 1;
+    overflow-y: auto;
+    min-height: 100vh; /* رنگ زرد تا آخر صفحه */
+}
+.menu-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 20px 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: nowrap; /* همیشه افقی */
+    white-space: nowrap;
+    width: 100%;
+    overflow-x: hidden; /* بدون اسکرول افقی، فیت اجباری */
 }
 
-.navbar {
-    background-color: #f8f9fa !important;
-    transition: background 0.5s ease;
+    .menu-list li {
+        margin: 0 15px;
+    }
+
+    .menu-list a {
+        color: #000;
+        text-decoration: none;
+        font-weight: bold;
+        transition: color 0.3s ease;
+    }
+
+        .menu-list a:hover {
+            color: #333;
+        }
+
+@media (max-width: 768px) {
+    .sidebar {
+        width: 40%; /* عرض ثابت درصدی برای موبایل، اما یکسان در صفحات */
+        min-width: 200px;
+        padding: 15px;
+        font-size: 0.85rem;
+    }
+
+        .sidebar img {
+            max-width: 100px;
+        }
+
+    .yellow-bg {
+        margin: 5px;
+        padding: 15px;
+        border-radius: 5px;
+        font-size: 0.9rem;
+        min-height: 100vh; /* رنگ تا آخر */
+    }
+
+    .menu-list li {
+        margin: 0 10px;
+        font-size: 0.9rem; /* کوچکتر برای فیت بدون اسکرول */
+    }
 }
 
-.nav-link {
+@media (max-width: 576px) {
+    .sidebar {
+        width: 40%;
+        min-width: 150px;
+        padding: 10px;
+        font-size: 0.75rem;
+    }
+
+        .sidebar img {
+            max-width: 80px;
+        }
+
+    .yellow-bg {
+        padding: 10px;
+        font-size: 0.8rem;
+        min-height: 100vh;
+    }
+
+    .menu-list {
+        justify-content: flex-start;
+    }
+
+        .menu-list li {
+            margin: 0 8px;
+            font-size: 0.8rem; /* حتی کوچکتر برای فیت کامل بدون اسکرول */
+        }
+}
+.icon-container a {
+    color: inherit; /* رنگ اصلی */
+    text-decoration: none;
     transition: color 0.3s ease, transform 0.3s ease;
 }
 
-    .nav-link:hover {
-        color: #000 !important;
-        transform: scale(1.1);
+    .icon-container a:hover {
+        color: #007bff; /* رنگ آبی برای hover (قابل تغییر) */
+        transform: scale(1.2); /* بزرگ شدن کمی برای افکت */
     }
 
-/* Animations */
-.fade-in {
-    animation: fadeIn 1s ease-in-out;
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.icon-bounce {
-    transition: transform 0.3s ease;
-}
-
-    .icon-bounce:hover {
-        transform: scale(1.2) translateY(-5px);
-    }
-
-.card {
-    border: none;
-    border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    overflow: hidden; /* No scroll in cards */
-}
-
-    .card:hover {
-        transform: scale(1.05);
-        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-    }
-
-.btn {
-    transition: background 0.3s ease, transform 0.3s ease;
-}
-
-    .btn:hover {
-        transform: scale(1.05);
-    }
-
-/* Dark Mode (Improved Contrast) */
-body.dark-mode {
-    background-color: #121212;
-    color: #f0f0f0;
-}
-
-    body.dark-mode .sidebar {
-        background-color: #2c2c2c;
-        border-right: 1px solid #444;
-        color: #f0f0f0;
-    }
-
-    body.dark-mode .yellow-bg {
-        background-color: #a68b00; /* Muted yellow */
-        color: #f0f0f0;
-    }
-
-    body.dark-mode .navbar {
-        background-color: #1e1e1e !important;
-    }
-
-    body.dark-mode .nav-link {
-        color: #f0f0f0 !important;
-    }
-
-        body.dark-mode .nav-link:hover {
-            color: #fff200 !important;
-        }
-
-    body.dark-mode footer {
-        background-color: #8c7500 !important; /* Dark yellow footer */
-        color: #f0f0f0 !important;
-    }
-
-    body.dark-mode a, body.dark-mode p, body.dark-mode li {
-        color: #f0f0f0 !important;
-        transition: color 0.5s ease;
-    }
-
-/* Responsive: Stack on mobile, no scroll */
-@media (max-width: 768px) {
-    .d-flex.flex-md-row {
-        flex-direction: column;
-    }
-
-    .sidebar {
-        width: 100%;
-        max-width: none;
-        border-right: none;
-        border-bottom: 1px solid #ddd;
-        height: auto;
-        max-height: 30vh; /* Limit height to prevent scroll */
-        overflow: hidden;
-        justify-content: flex-start; /* Fit content from top */
-    }
-
-        .sidebar ul {
-            font-size: 0.8rem; /* Even smaller on mobile to fit */
-        }
-
-    .main-content {
-        flex-grow: 1;
-        overflow: hidden;
-    }
-
-    .yellow-bg {
-        margin: 0;
-        border-radius: 0;
-        overflow: hidden;
-    }
+.icon-container .bi {
+    cursor: pointer; /* نشانگر ماوس pointer برای clickable بودن */
 }
