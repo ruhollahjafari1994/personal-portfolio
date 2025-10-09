@@ -1,0 +1,98 @@
+﻿@page
+@model MyPortfolio.Pages.ResumeModel
+
+<div class="container h-100 d-flex flex-column justify-content-start align-items-center text-center fade-in" style="overflow: hidden; padding: 10px; font-size: 0.85rem;">
+    <!-- Smaller font for fit, overflow hidden -->
+    <h1 class="fw-bold mb-3">Resume</h1>
+    <p class="mb-1">Tehran, Iran | Phone: +98 919 805 4320 | Email: jruhollah@gmail.com</p>
+    <p class="mb-2">INFORMATION TECHNOLOGY / SOFTWARE ENGINEERING | Back End Developer</p>
+    <p class="mb-3">Works in a team as a Back End Developer / Senior software engineer on different software solutions. Highly proficient in Software Developer and C#/.NET (2016–present). Has strong academic and industrial experience.</p>
+    <a href="~/files/.Net Developer - Roohollah Jafari.pdf" class="btn btn-primary mb-3" download>Download Resume</a>
+
+    <!-- Professional Experience: Card-based for attractiveness, flex for glanceable view -->
+    <h4 class="fw-bold mb-2">Professional Experience</h4>
+    <div class="d-flex flex-wrap justify-content-center gap-2 mb-3" style="overflow: hidden; max-height: 40vh;">
+        <!-- Flex-wrap to fit side-by-side without scroll -->
+        <div class="card p-2 shadow-sm" style="width: 280px; min-width: 250px;">
+            <!-- Compact cards with hover -->
+            <h5 class="card-title">TC Pay (Sep 2023 – Present) - Role: Team-Lead</h5>
+            <ul class="list-unstyled">
+                <li><i class="bi bi-check-circle-fill text-success me-1"></i><strong>Achievements:</strong> Implemented multi-currency payment gateways; Designed scalable microservices architecture; Developed RESTful APIs for seamless front-end and backend communication; Improved front-end performance by optimizing React components; Developed responsive UI components, enhancing user experience across devices.</li>
+                <li><i class="bi bi-briefcase-fill text-primary me-1"></i><strong>Jobs:</strong> Back End Developer</li>
+                <li><i class="bi bi-gear-fill text-info me-1"></i><strong>Skills:</strong> .NET, C#, SQL, React, JS, SDLC</li>
+            </ul>
+        </div>
+        <div class="card p-2 shadow-sm" style="width: 280px; min-width: 250px;">
+            <h5 class="card-title">Okala (Jul 2022 – Sep 2023) - Role: Back End Developer</h5>
+            <ul class="list-unstyled">
+                <li><i class="bi bi-check-circle-fill text-success me-1"></i><strong>Achievements:</strong> Building Micro services from Scratch; Developing New Product Features; Implementing New API Endpoints; Refactoring Legacy Code Base; Maintaining Legacy Systems.</li>
+                <li><i class="bi bi-briefcase-fill text-primary me-1"></i><strong>Jobs:</strong> Back End Developer</li>
+                <li><i class="bi bi-gear-fill text-info me-1"></i><strong>Skills:</strong> Micro service architecture, Design Patterns, AWS, .NET, C#, SQL, Kafka</li>
+            </ul>
+        </div>
+        <div class="card p-2 shadow-sm" style="width: 280px; min-width: 250px;">
+            <h5 class="card-title">Intelligent Systems of Third Generation (Apr 2018 – Jun 2022) - Role: Full-stack Developer</h5>
+            <ul class="list-unstyled">
+                <li><i class="bi bi-check-circle-fill text-success me-1"></i><strong>Achievements:</strong> Breaking dependencies between components; Replacing an old technology with a new technology; Reviewing The Quality Of Code & Design; Mentoring New Team Members.</li>
+                <li><i class="bi bi-briefcase-fill text-primary me-1"></i><strong>Jobs:</strong> Back End Developer; Front End Developer; Software architecture</li>
+                <li><i class="bi bi-gear-fill text-info me-1"></i><strong>Skills:</strong> .NET, C#, SQL, JS, Type Script, Html, CSS</li>
+            </ul>
+        </div>
+        <div class="card p-2 shadow-sm" style="width: 280px; min-width: 250px;">
+            <h5 class="card-title">DG WEB (Feb 2016 – Apr 2018) - Role: Back End Developer</h5>
+            <ul class="list-unstyled">
+                <li><i class="bi bi-check-circle-fill text-success me-1"></i><strong>Achievements:</strong> Created extensive unit, integration, and regression tests in a TDD environment; Implementing MVC and MVVM as suited for the projects in the solution; Working knowledge of Entity Framework and LINQ and Lambda expressions.</li>
+                <li><i class="bi bi-briefcase-fill text-primary me-1"></i><strong>Jobs:</strong> Back End Developer; Front End Developer</li>
+                <li><i class="bi bi-gear-fill text-info me-1"></i><strong>Skills:</strong> .NET, C#, SQL</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Other Sections: Compact Cards for Education, Certifications, Projects, Technologies -->
+    <div class="d-flex flex-wrap justify-content-center gap-2" style="overflow: hidden; max-height: 30vh;">
+        <!-- Fit remaining content -->
+        <div class="card p-2 shadow-sm" style="width: 280px; min-width: 250px;">
+            <h5 class="card-title">Education</h5>
+            <ul class="list-unstyled">
+                <li><i class="bi bi-book-fill text-warning me-1"></i>B.Sc. with Honors in Software engineering, 2012. - 2016. Department of Computer Engineering of the Mazandaran University of Science and Technology Studies in Mazandaran, Iran.</li>
+            </ul>
+        </div>
+        <div class="card p-2 shadow-sm" style="width: 280px; min-width: 250px;">
+            <h5 class="card-title">Certifications & Training</h5>
+            <ul class="list-unstyled">
+                <li><i class="bi bi-award-fill text-danger me-1"></i><strong>Certifications:</strong> Certified ASP.NET, SQL Server, Domain Driven Design, Unit Test and Integration Test, Test Driven Design.</li>
+                <li><i class="bi bi-lightbulb-fill text-success me-1"></i><strong>Training record:</strong> Agile Architecture and Flow Analysis, React in action.</li>
+            </ul>
+        </div>
+        <div class="card p-2 shadow-sm" style="width: 280px; min-width: 250px;">
+            <h5 class="card-title">Projects</h5>
+            <ul class="list-unstyled">
+                <li><i class="bi bi-code-slash text-primary me-1"></i><strong>E-Commerce Okala Web Application:</strong> Back End Development, design, testing and implementation; Refactoring monolith Legacy into micro services; Tech stack: C#/.NET, EntityFramework, T-SQL, Angular, TypeScript, Visual Studio, Git.</li>
+                <li><i class="bi bi-code-slash text-primary me-1"></i><strong>Sima Novin Enterprise resource planning (ERP):</strong> Software testing and implementation; Tech stack: WPF, MVVM, C#, Feature Based, FluentAPI, MVVMLight, Aspose, SourceAFIS.</li>
+                <li><i class="bi bi-code-slash text-primary me-1"></i><strong>Inventory management system:</strong> Software Development, design, testing and implementation; Tech stack: C#, ASP.NET MVC, Entity Framework, SQL Server Integration Services, RavenDB, Kendo UI, TypeScript, LESS, TFS.</li>
+            </ul>
+        </div>
+        <div class="card p-2 shadow-sm" style="width: 280px; min-width: 250px;">
+            <h5 class="card-title">Technologies & Skills</h5>
+            <!-- Progress bars for skills and languages (assumed levels based on experience) -->
+            <div class="mb-1">C# <div class="progress"><div class="progress-bar bg-success" role="progressbar" style="width: 95%;" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100">95%</div></div></div>
+            <div class="mb-1">.NET <div class="progress"><div class="progress-bar bg-success" role="progressbar" style="width: 95%;" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100">95%</div></div></div>
+            <div class="mb-1">JavaScript <div class="progress"><div class="progress-bar bg-info" role="progressbar" style="width: 85%;" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100">85%</div></div></div>
+            <div class="mb-1">C++ <div class="progress"><div class="progress-bar bg-info" role="progressbar" style="width: 70%;" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100">70%</div></div></div>
+            <div class="mb-1">Python <div class="progress"><div class="progress-bar bg-info" role="progressbar" style="width: 75%;" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">75%</div></div></div>
+            <div class="mb-1">ASP.NET <div class="progress"><div class="progress-bar bg-primary" role="progressbar" style="width: 90%;" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">90%</div></div></div>
+            <div class="mb-1">Angular <div class="progress"><div class="progress-bar bg-primary" role="progressbar" style="width: 80%;" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">80%</div></div></div>
+            <div class="mb-1">React <div class="progress"><div class="progress-bar bg-primary" role="progressbar" style="width: 85%;" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100">85%</div></div></div>
+            <div class="mb-1">HTML/CSS <div class="progress"><div class="progress-bar bg-primary" role="progressbar" style="width: 80%;" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">80%</div></div></div>
+            <div class="mb-1">SQL/T-SQL <div class="progress"><div class="progress-bar bg-warning" role="progressbar" style="width: 90%;" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">90%</div></div></div>
+            <div class="mb-1">MSSQL <div class="progress"><div class="progress-bar bg-warning" role="progressbar" style="width: 90%;" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">90%</div></div></div>
+            <div class="mb-1">MySQL <div class="progress"><div class="progress-bar bg-warning" role="progressbar" style="width: 80%;" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">80%</div></div></div>
+            <div class="mb-1">PostgreSQL <div class="progress"><div class="progress-bar bg-warning" role="progressbar" style="width: 75%;" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">75%</div></div></div>
+            <div class="mb-1">Redis <div class="progress"><div class="progress-bar bg-warning" role="progressbar" style="width: 70%;" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100">70%</div></div></div>
+            <div class="mb-1">Microservices Architecture <div class="progress"><div class="progress-bar bg-danger" role="progressbar" style="width: 90%;" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">90%</div></div></div>
+            <div class="mb-1">TDD/BDD/DDD <div class="progress"><div class="progress-bar bg-danger" role="progressbar" style="width: 85%;" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100">85%</div></div></div>
+            <div class="mb-1">Git/SVN <div class="progress"><div class="progress-bar bg-secondary" role="progressbar" style="width: 85%;" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100">85%</div></div></div>
+            <!-- Add more if needed; kept compact to fit -->
+        </div>
+    </div>
+</div>
