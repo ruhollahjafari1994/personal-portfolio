@@ -1,6 +1,8 @@
 {
-  "port": 80,
-  "dotnet": {
-    "version": "8.0"
-  }
+  "app": "roohollah-jafari",
+  "port": 3000,
+  "build": {
+    "location": "iran"
+  },
+  "disks": []
 }
