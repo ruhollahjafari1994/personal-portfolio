@@ -1,50 +1,127 @@
 ﻿@page
 @model MyPortfolio.Pages.WorksModel
 
-<div class="container h-100 d-flex flex-column justify-content-start align-items-center text-center fade-in" style="overflow: hidden; padding: 10px; font-size: 0.85rem;">
-    <!-- No-scroll, smaller font for fit -->
-    <h1 class="fw-bold mb-3">Works</h1>
-    <p class="mb-3">Here are the places I've worked, including key achievements, roles, skills, and related projects.</p>
+@{
+    // Sample work experiences data based on your PDF resume (extracted and organized). You can move this to your Model or a service.
+    var experiences = new List<(string Company, string Dates, string Role, List<string> Achievements, List<string> Jobs, List<string> Skills, string RelatedProject)> {
+        ("TC Pay", "Sep 2023 – Present", "Software Engineer",
+            new List<string> { "Implemented multi-currency payment gateways", "Designed scalable microservices architecture", "Developed RESTful APIs for seamless front-end and backend communication", "Improved front-end performance by optimizing React components", "Developed responsive UI components, enhancing user experience across devices" },
+            new List<string> { "Back End Developer" },
+            new List<string> { ".NET", "C#", "SQL", "React", "JS", "SDLC" },
+            "Multi-currency payment system integration."),
 
-    <!-- Workplaces: Card-based for attractiveness, flex for glanceable view -->
-    <div class="d-flex flex-wrap justify-content-center gap-2 mb-3" style="overflow: hidden; max-height: 80vh;">
-        <!-- Flex-wrap to fit without scroll -->
-        <div class="card p-2 shadow-sm" style="width: 280px; min-width: 250px;">
-            <!-- Compact cards with hover -->
-            <h5 class="card-title">TC Pay (Sep 2023 – Present) - Team-Lead</h5>
-            <ul class="list-unstyled">
-                <li><i class="bi bi-check-circle-fill text-success me-1"></i><strong>Achievements:</strong> Implemented multi-currency payment gateways; Designed scalable microservices architecture; Developed RESTful APIs; Optimized React components; Developed responsive UI.</li>
-                <li><i class="bi bi-briefcase-fill text-primary me-1"></i><strong>Jobs:</strong> Back End Developer</li>
-                <li><i class="bi bi-gear-fill text-info me-1"></i><strong>Skills:</strong> .NET, C#, SQL, React, JS, SDLC</li>
-                <li><i class="bi bi-code-slash text-primary me-1"></i><strong>Related Project:</strong> Multi-currency payment system integration.</li>
-            </ul>
-        </div>
-        <div class="card p-2 shadow-sm" style="width: 280px; min-width: 250px;">
-            <h5 class="card-title">Okala (Jul 2022 – Sep 2023) - Back End Developer</h5>
-            <ul class="list-unstyled">
-                <li><i class="bi bi-check-circle-fill text-success me-1"></i><strong>Achievements:</strong> Built microservices from scratch; Developed new features; Implemented API endpoints; Refactored legacy code; Maintained systems.</li>
-                <li><i class="bi bi-briefcase-fill text-primary me-1"></i><strong>Jobs:</strong> Back End Developer</li>
-                <li><i class="bi bi-gear-fill text-info me-1"></i><strong>Skills:</strong> Microservice architecture, Design Patterns, AWS, .NET, C#, SQL, Kafka</li>
-                <li><i class="bi bi-code-slash text-primary me-1"></i><strong>Related Project:</strong> E-Commerce Okala Web Application (Back End Development, refactoring monolith to microservices; Tech: C#/.NET, EntityFramework, T-SQL, Angular, TypeScript, Git).</li>
-            </ul>
-        </div>
-        <div class="card p-2 shadow-sm" style="width: 280px; min-width: 250px;">
-            <h5 class="card-title">Intelligent Systems of Third Generation (Apr 2018 – Jun 2022) - Full-stack Developer</h5>
-            <ul class="list-unstyled">
-                <li><i class="bi bi-check-circle-fill text-success me-1"></i><strong>Achievements:</strong> Broke dependencies; Replaced old technologies; Reviewed code quality; Mentored team members.</li>
-                <li><i class="bi bi-briefcase-fill text-primary me-1"></i><strong>Jobs:</strong> Back End Developer; Front End Developer; Software architecture</li>
-                <li><i class="bi bi-gear-fill text-info me-1"></i><strong>Skills:</strong> .NET, C#, SQL, JS, TypeScript, HTML, CSS</li>
-                <li><i class="bi bi-code-slash text-primary me-1"></i><strong>Related Project:</strong> Sima Novin ERP (Software testing and implementation; Tech: WPF, MVVM, C#, Feature Based, FluentAPI, MVVMLight, Aspose, SourceAFIS).</li>
-            </ul>
-        </div>
-        <div class="card p-2 shadow-sm" style="width: 280px; min-width: 250px;">
-            <h5 class="card-title">DG WEB (Feb 2016 – Apr 2018) - Back End Developer</h5>
-            <ul class="list-unstyled">
-                <li><i class="bi bi-check-circle-fill text-success me-1"></i><strong>Achievements:</strong> Created unit/integration tests in TDD; Implemented MVC/MVVM; Used Entity Framework, LINQ, Lambda.</li>
-                <li><i class="bi bi-briefcase-fill text-primary me-1"></i><strong>Jobs:</strong> Back End Developer; Front End Developer</li>
-                <li><i class="bi bi-gear-fill text-info me-1"></i><strong>Skills:</strong> .NET, C#, SQL</li>
-                <li><i class="bi bi-code-slash text-primary me-1"></i><strong>Related Project:</strong> Inventory management system (Development, design, testing; Tech: C#, ASP.NET MVC, Entity Framework, SQL Server, RavenDB, Kendo UI, TypeScript, LESS, TFS).</li>
-            </ul>
-        </div>
+        ("Okala", "Jul 2022 – Sep 2023", "Back End Developer",
+            new List<string> { "Building Micro services from Scratch", "Developing New Product Features", "Implementing New API Endpoints", "Refactoring Legacy Code Base", "Maintaining Legacy Systems" },
+            new List<string> { "Back End Developer" },
+            new List<string> { "Microservice architecture", "Design Patterns", "AWS", ".NET", "C#", "SQL", "Kafka" },
+            "E-Commerce Okala Web Application (Back End Development, design, testing and implementation; Refactoring monolith Legacy into micro services; Tech stack: C#/.NET, EntityFramework, T-SQL, Angular, TypeScript, Visual Studio, Git)."),
+
+        ("Intelligent Systems of Third Generation", "Apr 2018 – Jun 2022", "Full-stack Developer",
+            new List<string> { "Breaking dependencies between components", "Replacing an old technology with a new technology", "Reviewing The Quality Of Code & Design", "Mentoring New Team Members" },
+            new List<string> { "Back End Developer", "Front End Developer", "Software architecture" },
+            new List<string> { ".NET", "C#", "SQL", "JS", "TypeScript", "HTML", "CSS" },
+            "Sima Novin Enterprise resource planning (ERP) (Software testing and implementation; Tech stack: WPF, MVVM, C#, Feature Based, FluentAPI, MVVMLight, Aspose, SourceAFIS)."),
+
+        ("DG WEB", "Feb 2016 – Apr 2018", "Back End Developer",
+            new List<string> { "Created extensive unit, integration, and regression tests in a TDD environment.", "Implementing MVC and MVVM as suited for the projects in the solution.", "Working knowledge of Entity Framework and LINQ and Lambda expressions." },
+            new List<string> { "Back End Developer", "Front End Developer" },
+            new List<string> { ".NET", "C#", "SQL" },
+            "Inventory management system (Software Development, design, testing and implementation; Tech stack: C#, ASP.NET MVC, Entity Framework, SQL Server Integration Services, RavenDB, Kendo UI, TypeScript, LESS, TFS).")
+    };
+}
+
+<style>
+    /* Fade-in animation for the container */
+    .fade-in {
+        animation: fadeIn 1s ease-in-out;
+    }
+
+    @@keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+
+        to {
+            opacity: 1;
+        }
+    }
+
+    /* Hover effect for experience rows */
+    .experience-row {
+        transition: background-color 0.3s ease, transform 0.2s ease;
+        padding: 15px;
+        border-bottom: 1px solid #dee2e6;
+    }
+
+        .experience-row:hover {
+            background-color: #f8f9fa;
+            transform: translateY(-2px);
+        }
+
+    /* Mimic PDF styling: bold headings, subtle icons */
+    .company-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-weight: bold;
+        font-size: 1.1rem;
+    }
+
+    .role {
+        font-style: italic;
+        color: #6c757d;
+    }
+
+    ul {
+        list-style-type: none;
+        padding-left: 0;
+    }
+
+    li {
+        margin-bottom: 5px;
+    }
+
+    /* Ensure left-to-right direction for skills line */
+    .skills-line {
+        direction: ltr;
+        text-align: left;
+    }
+</style>
+
+<div class="container h-100 d-flex flex-column justify-content-start align-items-center text-center fade-in" style="padding: 10px; font-size: 0.85rem; overflow-y: auto; max-height: 80vh;">
+    <h1 class="fw-bold mb-3">Works</h1>
+    <div class="w-100">
+        @foreach (var exp in experiences)
+        {
+            <div class="experience-row">
+                <div class="company-header">
+                    <span>@exp.Company</span>
+                    <span>@exp.Dates</span>
+                </div>
+                <p class="role mb-2">@exp.Role</p>
+
+                <h6 class="text-start fw-bold mb-1">Achievements:</h6>
+                <ul>
+                    @foreach (var achievement in exp.Achievements)
+                    {
+                        <li><i class="bi bi-check-circle-fill text-success me-1"></i>@achievement</li>
+                    }
+                </ul>
+
+                <h6 class="text-start fw-bold mb-1">Jobs:</h6>
+                <ul>
+                    @foreach (var job in exp.Jobs)
+                    {
+                        <li><i class="bi bi-briefcase-fill text-primary me-1"></i>@job</li>
+                    }
+                </ul>
+
+                <h6 class="text-start fw-bold mb-1">Skills:</h6>
+                <p class="skills-line"><i class="bi bi-gear-fill text-info me-1"></i>@string.Join(", ", exp.Skills)</p>
+
+                <h6 class="text-start fw-bold mb-1">Related Project:</h6>
+                <p class="text-start"><i class="bi bi-code-slash text-primary me-1"></i>@exp.RelatedProject</p>
+            </div>
+        }
     </div>
 </div>
